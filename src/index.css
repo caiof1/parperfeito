@@ -24,3 +24,7 @@ button {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+.input_form {
+  width: 100%;
+}

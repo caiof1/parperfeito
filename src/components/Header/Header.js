@@ -25,7 +25,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="O que você está buscando?"
-              className={styles.search}
+              className={`${styles.search} input_form`}
             />
             <i class="fa-solid fa-gift"></i>
           </form>
