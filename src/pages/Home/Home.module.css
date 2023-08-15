@@ -1,0 +1,57 @@
+.main {
+    width: 1005;
+
+    .container_benefity {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 75px;
+
+        .slide_benefity {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide_benefity i {
+            font-size: 34px;
+            color: #9D2235;
+        }
+
+        .slide_benefity span {
+            width: 140px;
+            font-size: 17px;
+            text-align: center;
+        }
+    }
+
+    .carousel_category {
+        margin-top: 40px;
+        padding: 0 30px;
+
+        .category {
+            text-align: center;
+            width: 100px;
+            height: 130px;
+        }
+
+        .category div { 
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            border: 1px solid #9D2235;
+            background: #fff;
+        }
+
+        .category span {
+            color: #9D2235;
+            font-weight: 600;
+        }
+
+        .category img {
+            width: 100%;
+            border-radius: 50px;
+        }
+    }
+}
