@@ -148,7 +148,7 @@
 
     @media screen and (max-width: 450px) {
         .product {
-            padding: 0 40px !important;
+            padding: 0 60px !important;
         }
     }
 
@@ -157,6 +157,15 @@
             padding: 0;
         }
 
+    }
+
+    @media screen and (max-width: 355px) {
+        .product {
+            padding: 0 30px !important;
+        }
+    }
+
+    @media screen and (max-width: 303px) {
         .product {
             padding: 0 10px !important;
         }
