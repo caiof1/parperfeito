@@ -1,5 +1,13 @@
 .main {
-    width: 1005;
+    width: 100%;
+
+    .banner {
+        width: 100%;
+    }
+
+    .banner img {
+        width: 100%;
+    }
 
     .container_benefity {
         width: 100%;
@@ -52,6 +60,43 @@
         .category img {
             width: 100%;
             border-radius: 50px;
+        }
+    }
+
+    .carousel_more {
+        margin-top: 40px;
+    }
+
+    .carousel_more h2 {
+        color: #9D2235;
+        margin-bottom: -20px;
+        margin-left: 10px;
+    }
+
+    .banner_promotional {
+        margin-top: 50px;
+        display: flex;
+        padding: 5px;
+
+        .banner_1,
+        .banner_2,
+        .banner_3 {
+            width: 100%;
+            max-width: 350px;
+            height: 200px;
+            border-radius: 7px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .banner_1 img,
+        .banner_2 img,
+        .banner_3 img {
+            width: 100%;
+            height: inherit;
+            border-radius: 10px;
         }
     }
 }

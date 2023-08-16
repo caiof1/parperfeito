@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 // images
 import banner1 from "../../images/banner_principal.png";
 import produto from "../../images/produto_teste.png";
+import bannerPromocional1 from "../../images/banner_promocional.png";
 
 // Components
 import Carousel from "../../components/Carousel/Carousel";
@@ -47,6 +48,7 @@ const Home = () => {
         slidesPerView={1}
         pagination={{ clickable: true, dynamicBullets: true }}
         navigation={onNavigation}
+        className={styles.banner}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
@@ -57,10 +59,10 @@ const Home = () => {
         }}
       >
         <SwiperSlide>
-          <img src={banner1} width="100%" alt="" />
+          <img src={banner1} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={banner1} width="100%" alt="" />
+          <img src={banner1} alt="" />
         </SwiperSlide>
       </Swiper>
       <Swiper
@@ -164,7 +166,25 @@ const Home = () => {
           <span>Series</span>
         </SwiperSlide>
       </Swiper>
-      <Carousel />
+      <section className={styles.carousel_more}>
+        <h2>Produtos mais vendidos:</h2>
+        <Carousel />
+      </section>
+      <Swiper
+        grabCursor={true}
+        className={styles.banner_promotional}
+        slidesPerView={amountSlidePerView}
+      >
+        <SwiperSlide className={styles.banner_1}>
+          <img src={bannerPromocional1} alt="" />
+        </SwiperSlide>
+        <SwiperSlide className={styles.banner_1}>
+          <img src={bannerPromocional1} alt="" />
+        </SwiperSlide>
+        <SwiperSlide className={styles.banner_1}>
+          <img src={bannerPromocional1} alt="" />
+        </SwiperSlide>
+      </Swiper>
     </main>
   );
 };
