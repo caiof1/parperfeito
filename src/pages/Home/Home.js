@@ -170,21 +170,6 @@ const Home = () => {
         <h2>Produtos mais vendidos:</h2>
         <Carousel />
       </section>
-      <Swiper
-        grabCursor={true}
-        className={styles.banner_promotional}
-        slidesPerView={amountSlidePerView}
-      >
-        <SwiperSlide className={styles.banner_1}>
-          <img src={bannerPromocional1} alt="" />
-        </SwiperSlide>
-        <SwiperSlide className={styles.banner_1}>
-          <img src={bannerPromocional1} alt="" />
-        </SwiperSlide>
-        <SwiperSlide className={styles.banner_1}>
-          <img src={bannerPromocional1} alt="" />
-        </SwiperSlide>
-      </Swiper>
     </main>
   );
 };
