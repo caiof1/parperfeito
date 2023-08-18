@@ -33,6 +33,8 @@ const Home = () => {
       }
     }
 
+    
+
     handleResize();
 
     window.addEventListener("resize", handleResize);
@@ -49,6 +51,7 @@ const Home = () => {
         pagination={{ clickable: true, dynamicBullets: true }}
         navigation={onNavigation}
         className={styles.banner}
+        grabCursor={true}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
@@ -68,6 +71,7 @@ const Home = () => {
       <Swiper
         className={styles.container_benefity}
         slidesPerView={amountSlidePerView}
+        grabCursor={true}
       >
         <SwiperSlide className={styles.slide_benefity}>
           <i class="fa-brands fa-pix"></i>
@@ -86,6 +90,7 @@ const Home = () => {
         className={styles.carousel_category}
         slidesPerView={"auto"}
         spaceBetween={30}
+        grabCursor={true}
       >
         <SwiperSlide className={styles.category}>
           <div>
@@ -167,7 +172,22 @@ const Home = () => {
         </SwiperSlide>
       </Swiper>
       <section className={styles.carousel_more}>
-        <h2>Produtos mais vendidos:</h2>
+        <h2>Mais vendidos:</h2>
+        <Carousel />
+      </section>
+      <div className={styles.carousel_banner}>
+        <div className={styles.banner_promotional}>
+          <div>
+            <img src={bannerPromocional1} alt="" />
+          </div>
+        </div>
+      </div>
+      <section className={styles.carousel_more}>
+        <h2>Você pode gostar:</h2>
+        <Carousel reverse={true} />
+      </section>
+      <section className={styles.carousel_more}>
+        <h2>Nossos lançamentos:</h2>
         <Carousel />
       </section>
     </main>

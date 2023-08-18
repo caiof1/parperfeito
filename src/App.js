@@ -6,6 +6,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 // Components
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 // Swiper
 import { register } from "swiper/element/bundle";
@@ -27,6 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
