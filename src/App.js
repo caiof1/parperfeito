@@ -17,6 +17,8 @@ import "swiper/css/pagination"
 
 // Pages
 import Home from './pages/Home/Home';
+import PageProduct from './pages/Home/PageProduct/PageProduct';
+
 
 register();
 
@@ -27,6 +29,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/pdp" element={<PageProduct />} />
         </Routes>
         <Footer />
       </BrowserRouter>

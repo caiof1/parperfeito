@@ -1,0 +1,207 @@
+.container_pdp {
+    margin-top: 30px;
+    
+    .product_and_info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .product_img {
+            width: 40%;
+            height: 400px;
+        }
+
+        .product_img img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 7px;
+        }
+
+        .info_product {
+            width: 59%;
+            padding-left: 10px;
+
+            .value_avaliation {
+                color: #333232;
+                font-size: 11px;
+            }
+
+            .value_avaliation span:first-child {
+                margin-right: 7px;
+            }
+
+            .value_avaliation span:last-child {
+                margin-left: 7px;
+            }
+
+            .name_product {
+                margin-top: 10px;
+                color: #9D2235;
+                font-weight: normal;
+                font-size: 20px;
+                width: 95%;
+            }
+
+            .stars {
+                display: flex;
+                margin-top: 12px;
+                align-items: center;
+
+                .star {
+                    margin-right: 4px;
+                }
+
+                .star i {
+                    margin-right: 6px;
+                    color: #9D2235;
+                    font-size: 18px;
+                }
+
+                .rank {
+                    font-size: 18px;
+                }
+            }
+
+            .value_selectqtd {
+                margin-top: 12px;
+                display: flex;
+                align-items: center;
+
+                .value {
+                    margin-right: 20px;
+                    .discount {
+                        text-decoration: line-through;
+                        color: #8C8C8C;
+                        font-size: 11px;
+                    }
+
+                    .value_normal {
+                        display: flex;
+                        align-items: center;
+                        
+                        .value_discount {
+                            margin-right: 10px;
+                            font-size: 27px;
+                            font-weight: bold;
+                            color: #9D2235;
+                        }
+
+                        .qtd_discount {
+                            padding: 5px 7px;
+                            background: #9D2235;
+                            border-radius: 10px;
+                            color: #fff;
+                            font-size: 14px;
+                        }
+                    }
+
+                    .no_juros {
+                        font-size: 12px;
+                    }
+
+                    .no_juros span {
+                        color: #9D2235;
+                    }
+                }
+
+                .selectqtd {
+                    display: flex;
+                    align-items: center;
+                    .less,
+                    .more {
+                        width: 30px;
+                        height: 40px;
+                        background: #9D2235;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: #fff;
+                        font-size: 20px;
+                        cursor: pointer;
+                    }
+
+                    .less:hover,
+                    .more:hover {
+                        background: #fff;
+                        color: #9D2235;
+                        transition: .2s linear;
+                    }
+
+                    .less {
+                        border-radius: 5px 0 0 5px;
+                    }
+
+                    .more {
+                        border-radius: 0 5px 5px 0;
+                    }
+
+                    .camp_number {
+                        width: 60px;
+                        height: 40px;
+                        border: 0;
+                        text-align: center;
+                        font-size: 20px;
+                        color: #9D2235;
+                    }
+
+                    .camp_number::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        -moz-appearance: none;
+                    }
+                }
+
+            }
+
+            .variantes {
+                margin-top: 15px;
+                display: flex;
+                flex-wrap: wrap;
+
+                .variante {
+                    width: 60px;
+                    height: 60px;
+                    margin-bottom: 10px;
+                    margin-right: 10px;
+                }
+
+                .variante img {
+                    width: 100%;
+                    height: inherit;
+                    border-radius: 10px;
+                }
+            }
+
+            .buy_frete {
+                display: flex;
+                align-items: center;
+
+                .frete_days {
+                    display: flex;
+                    flex-direction: column;
+                    margin-right: 50px;
+
+                    .frete {
+                        margin-bottom: 10px;
+                    }
+                }
+
+                .frete_days span {
+                    color: #333232;
+                }
+
+                .btn {
+                    max-width: 140px;
+                    width: 100%;
+                    height: 40px;
+                    background: transparent;
+                    border-radius: 15px;
+                    border: 1px solid #9D2235;
+                    color: #9D2235;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
