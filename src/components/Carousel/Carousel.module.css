@@ -37,6 +37,7 @@
 
         .product_single {
             width: 235px;
+            min-width: 235px;
             height: 380px;
             padding: 5px 20px;
             background-color: #9D2235;

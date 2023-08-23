@@ -15,7 +15,9 @@ import bannerPromocional1 from "../../images/banner_promocional.png";
 // Components
 import Carousel from "../../components/Carousel/Carousel";
 
-const Home = () => {
+const Home = ({setIsHeader}) => {
+  setIsHeader(true)
+
   const [onNavigation, setOnNavigation] = useState(true);
   const [amountSlidePerView, setAmountSlidePerView] = useState(3);
 

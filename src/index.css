@@ -28,3 +28,8 @@ button {
 .input_form {
   width: 100%;
 }
+
+.error {
+  margin-top: 15px;
+  color: rgb(245, 5, 5);
+}
