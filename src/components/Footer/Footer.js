@@ -13,7 +13,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <section className={`${styles.container_footer} center`}>
         <div className={styles.container_info}>
-          <span className={styles.logo}>Logo</span>
+          <span className={styles.logo}>Par Perfeito</span>
           <div className={styles.info}>
             <div className={styles.info_single}>
               <h4 className={styles.title}>Contate-me</h4>

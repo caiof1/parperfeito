@@ -15,5 +15,7 @@
 
     .logo {
         color: #fff;    
+        font-family: "Inspiration", sans-serif;
+        font-size: 25px;
     }
 }

@@ -2,7 +2,7 @@
 import './App.css';
 
 // Router
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 
 // Components
 import Header from './components/Header/Header';
@@ -15,11 +15,6 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import "swiper/css/pagination"
 
-// Pages
-import Home from './pages/Home/Home';
-import PageProduct from './pages/PageProduct/PageProduct';
-import Login from './pages/Login/Login';
-
 // Hooks
 import { useState, useEffect } from 'react';
 
@@ -31,6 +26,12 @@ import Register from './pages/Register/Register';
 
 // firebase 
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
+
+// Pages
+import Home from './pages/Home/Home';
+import PageProduct from './pages/PageProduct/PageProduct';
+import Login from './pages/Login/Login';
+import MyAccount from './pages/MyAccount/MyAccount';
 
 
 register();
@@ -55,8 +56,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home setIsHeader={setIsHeader} />} />
           <Route path="/pdp" element={<PageProduct setIsHeader={setIsHeader} />} />
-          <Route path="/login" element={<Login setIsHeader={setIsHeader} />} />
-          <Route path="/register" element={<Register setIsHeader={setIsHeader} />} />
+          <Route path="/login" element={!user ? <Login setIsHeader={setIsHeader} /> : <Navigate to="/" />} />
+          <Route path="/register" element={!user ? <Register setIsHeader={setIsHeader} /> : <Navigate to="/" />} />
+          <Route path="/myaccount" element={user ? <MyAccount setIsHeader={setIsHeader} /> : <Navigate to="/login" /> } />
         </Routes>
         {isHeader && <Footer />}
       </BrowserRouter>

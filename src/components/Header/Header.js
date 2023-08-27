@@ -22,7 +22,7 @@ const Header = ({ user }) => {
       <nav className="center">
         <div className={styles.container_header}>
           <div className={styles.logo}>
-            <span>Logo</span>
+            <Link to="/">Par Perfeito</Link>
           </div>
           <ul className={styles.menu}>
             <li>
@@ -43,7 +43,7 @@ const Header = ({ user }) => {
                     </div>
                   ) : (
                     <div className={styles.menu_suspenso}>
-                      <Link to="/register">Minha conta</Link>
+                      <Link to="/myaccount" onClick={() => setLoginOrRegister(false)}>Minha conta</Link>
                       <span onClick={handleLogout}>Sair</span>
                     </div>
                   )}

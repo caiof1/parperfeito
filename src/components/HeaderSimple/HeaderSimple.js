@@ -1,12 +1,16 @@
+// CSS
 import styles from "./HeaderSimple.module.css";
+
+// Router
+import { Link } from "react-router-dom";
 
 const HeaderSimple = () => {
   return (
     <header className={styles.header}>
-      <span className={styles.back}>
+      <Link to={-1} className={styles.back}>
         <i class="fa-solid fa-chevron-left"></i>
-      </span>
-      <h2 className={styles.logo}>Logo</h2>
+      </Link>
+      <Link to="/" className={styles.logo}>Par Perfeito</Link>
     </header>
   );
 };

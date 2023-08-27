@@ -11,9 +11,10 @@
         align-items: center;
         padding-left: 10px;
 
-        .logo span {
+        .logo a {
             font-size: 25px;
             color: #fff;
+            font-family: "Inspiration", sans-serif;
         }
 
         .menu {
