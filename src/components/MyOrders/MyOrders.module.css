@@ -16,6 +16,7 @@
             border-radius: 10px;
             cursor: pointer;
             margin-bottom: 15px;
+            align-items: center;
 
             .img {
                 width: 100%;
@@ -55,16 +56,12 @@
     @media screen and (max-width: 550px) {
         .container_orders {
             .order {
-                .img {
+                justify-content: center;
+
+                .info {
                     display: none;
                 }
             }
-        }
-    }
-
-    @media screen and (max-width: 450px) {
-        .container_orders .order {
-            padding: 0;
         }
     }
 

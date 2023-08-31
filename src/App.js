@@ -32,6 +32,7 @@ import Home from './pages/Home/Home';
 import PageProduct from './pages/PageProduct/PageProduct';
 import Login from './pages/Login/Login';
 import MyAccount from './pages/MyAccount/MyAccount';
+import Cart from './pages/Cart/Cart';
 
 
 register();
@@ -59,6 +60,7 @@ function App() {
           <Route path="/login" element={!user ? <Login setIsHeader={setIsHeader} /> : <Navigate to="/" />} />
           <Route path="/register" element={!user ? <Register setIsHeader={setIsHeader} /> : <Navigate to="/" />} />
           <Route path="/myaccount" element={user ? <MyAccount setIsHeader={setIsHeader} /> : <Navigate to="/login" /> } />
+          <Route path="/cart" element={<Cart setIsHeader={setIsHeader} />} />
         </Routes>
         {isHeader && <Footer />}
       </BrowserRouter>

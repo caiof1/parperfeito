@@ -11,8 +11,8 @@ import { useState } from "react";
 import product from "../../images/produto_teste.png";
 import CarouselNoBanner from "../../components/CarouselNoBanner/CarouselNoBanner";
 
-const PageProduct = ({setIsHeader}) => {
-  setIsHeader(true)
+const PageProduct = ({ setIsHeader }) => {
+  setIsHeader(true);
   const [activeDescription, setActiveDescription] = useState(true);
   const [activeConsumidor, setActiveConsumidor] = useState(false);
   const [activeChar, setActiveChar] = useState(false);
@@ -39,7 +39,16 @@ const PageProduct = ({setIsHeader}) => {
   return (
     <div className={`${styles.container_pdp} center`}>
       <div className={styles.product_and_info}>
-        <Swiper className={styles.product_img}>
+        <Swiper
+          className={styles.product_img}
+          style={{
+            "--swiper-navigation-color": "#9D2235",
+            "--swiper-pagination-color": "#9D2235",
+          }}
+          grabCursor={true}
+          navigation
+          pagination={{ clickable: true, dynamicBullets: true }}
+        >
           <SwiperSlide>
             <img src={product} alt="" />
           </SwiperSlide>

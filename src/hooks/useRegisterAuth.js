@@ -8,11 +8,18 @@ import {
 
 // Hooks
 import { useState } from "react";
+import { useInsertDoc } from "./useInsertDoc";
+
 
 export const useRegisterAuth = () => {
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
   const [acess, setAcess] = useState(false);
+
+  const { insertDoc } = useInsertDoc(
+    "users",
+    "Tivemos um problema ao criar o seu perfil"
+  );
 
   const auth = getAuth();
 
@@ -24,11 +31,27 @@ export const useRegisterAuth = () => {
         data.email,
         data.password
       );
+
       await updateProfile(user, {
         displayName: data.name,
       });
 
+      const infoUser = {
+        uid: user.uid,
+        name: user.displayName,
+        subName: '',
+        email: user.email,
+        phone: '',
+        orders: [],
+        avaliations: [],
+        ID: 0,
+        address: []
+      }
+
+      insertDoc(infoUser)
+
       setAcess(true);
+
     } catch (error) {
       let systemErrorMessage;
 

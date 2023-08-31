@@ -6,6 +6,15 @@
   box-sizing: border-box;
 }
 
+body::-webkit-scrollbar {
+  width: 5px;
+  background: #9D2235;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #fff;
+}
+
 a {
   text-decoration: none;
   color: #fff;

@@ -7,9 +7,12 @@ import {useLogoutAuth} from '../../hooks/useLogoutAuth'
 
 // Router
 import { Link } from "react-router-dom";
+import MiniCart from "../MiniCart/MiniCart";
 
 const Header = ({ user }) => {
   const [loginOrRegister, setLoginOrRegister] = useState(false);
+  const [active, setActive] = useState(false)
+
   const logout = useLogoutAuth()
 
   const handleLogout = () => {
@@ -27,7 +30,7 @@ const Header = ({ user }) => {
           <ul className={styles.menu}>
             <li>
               <i
-                class="fa-solid fa-user"
+                className="fa-solid fa-user"
                 onClick={() =>
                   setLoginOrRegister(
                     (actualLoginOrRegister) => !actualLoginOrRegister
@@ -51,10 +54,10 @@ const Header = ({ user }) => {
               )}
             </li>
             <li>
-              <i class="fa-solid fa-bag-shopping"></i>
+              <i className="fa-solid fa-bag-shopping" onClick={() => setActive((actualActive) => !actualActive)}></i>
             </li>
             <li>
-              <i class="fa-solid fa-heart"></i>
+              <i className="fa-solid fa-heart"></i>
             </li>
           </ul>
         </div>
@@ -65,10 +68,11 @@ const Header = ({ user }) => {
               placeholder="O que você está buscando?"
               className={`${styles.search} input_form`}
             />
-            <i class="fa-solid fa-gift"></i>
+            <i className="fa-solid fa-gift"></i>
           </form>
         </div>
       </nav>
+      <MiniCart active={active} setActive={setActive} />
     </header>
   );
 };
