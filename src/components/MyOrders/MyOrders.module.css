@@ -1,68 +1,67 @@
 .orders {
     width: 100%;
+}
 
-    .title {
-        font-size: 26px;
-        color: #9D2235;
+.title {
+    font-size: 26px;
+    color: #9D2235;
+}
+
+.container_orders {
+    margin-top: 20px;
+}
+
+.order {
+    padding: 10px;
+    display: flex;
+    border: 1px solid #9D2235;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    align-items: center;   
+}
+
+.img {
+    width: 100%;
+    max-width: 150px;
+    height: 150px;
+}
+
+.img img {
+    width: 100%;
+    height: inherit;
+    border-radius: 10px;
+}
+
+.info {
+    padding: 10px;
+    color: #000;
+    font-size: 13px;
+
+    
+}
+
+.name_product {
+    margin-bottom: 15px;
+}
+
+.time,
+.single_value,
+.total_value {
+    margin-bottom: 15px;
+}
+
+.order:hover {
+    scale: 1.02;
+    transition: .2s linear;
+}
+
+@media screen and (max-width: 550px) {
+    .order {
+        justify-content: center;
     }
 
-    .container_orders {
-        margin-top: 20px;
-        
-        .order {
-            padding: 10px;
-            display: flex;
-            border: 1px solid #9D2235;
-            border-radius: 10px;
-            cursor: pointer;
-            margin-bottom: 15px;
-            align-items: center;
-
-            .img {
-                width: 100%;
-                max-width: 150px;
-                height: 150px;
-            }
-
-            .img img {
-                width: 100%;
-                height: inherit;
-                border-radius: 10px;
-            }
-
-            .info {
-                padding: 10px;
-                color: #000;
-                font-size: 13px;
-
-                .name_product {
-                    margin-bottom: 15px;
-                }
-                
-                .time,
-                .single_value,
-                .total_value {
-                    margin-bottom: 15px;
-                }
-            }
-        }
-
-        .order:hover {
-            scale: 1.02;
-            transition: .2s linear;
-        }
+    .info {
+        display: none;
     }
-
-    @media screen and (max-width: 550px) {
-        .container_orders {
-            .order {
-                justify-content: center;
-
-                .info {
-                    display: none;
-                }
-            }
-        }
-    }
-
 }

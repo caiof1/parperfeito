@@ -1,73 +1,74 @@
 .footer {
     width: 100%;
     background: #9D2235;
-    margin-top: 50px;
+    margin-top: 50px; 
+}
 
-    .container_footer {
-        width: 100%;
-        padding: 0 10px;
+.container_footer {
+    width: 100%;
+    padding: 0 10px;  
+}
 
-        .container_info {
-            padding-top: 40px;
-            .logo {
-                font-size: 29px;
-                color: #fff;
-                font-family: "Inspiration", sans-serif;
-            }
+.container_info {
+    padding-top: 40px;
+}
 
-            .info {
-                margin-top: 20px;
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                flex-wrap: wrap;
+.logo {
+    font-size: 29px;
+    color: #fff;
+    font-family: "Inspiration", sans-serif;
+}
 
-                .info_single {
-                    margin: 10px 0;
+.info {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
-                    .title {
-                        color: #fff;
-                        font-size: 20px;
-                        font-weight: normal;
-                        margin-bottom: 15px;
-                    }
+.info_single {
+    margin: 10px 0;   
+}
 
-                    .contact {
-                        margin-left: 10px;
-                    }
+.title {
+    color: #fff;
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
 
-                    .contact > div {
-                        display: flex;
-                        color: #fff;
-                    }
+.contact {
+    margin-left: 10px;
+}
 
-                    .contact div i {
-                        font-size: 22px;
-                        margin-right: 10px;
-                    }
+.contact > div {
+    display: flex;
+    color: #fff;
+}
 
-                    .contact div span:last-child {
-                        font-size: 13px;
-                        margin-top: 5px;
-                    }
+.contact div i {
+    font-size: 22px;
+    margin-right: 10px;
+}
 
-                    .contact div div {
-                        margin-bottom: 10px;
-                        display: flex;
-                        flex-direction: column;
-                    }
+.contact div span:last-child {
+    font-size: 13px;
+    margin-top: 5px;
+}
 
-                    .img_payment {
-                        display: flex;
-                        flex-wrap: wrap;
-                    }
+.contact div div {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
 
-                    .img_payment img {
-                        margin: 5px 10px;
-                        width: 50px;
-                    }
-                }
-            }
-        }
-    }
+.img_payment {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img_payment img {
+    margin: 5px 10px;
+    width: 50px;
 }
