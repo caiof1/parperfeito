@@ -6,17 +6,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // hooks
 import { useState, useEffect } from "react";
+import { useFetchDocs } from "../../hooks/useFetchDocs";
 
 // images
 import banner1 from "../../images/banner_principal.png";
-import produto from "../../images/produto_teste.png";
 import bannerPromocional1 from "../../images/banner_promocional.png";
 
 // Components
 import Carousel from "../../components/Carousel/Carousel";
 
-const Home = ({setIsHeader}) => {
-  setIsHeader(true)
+const Home = ({ setIsHeader }) => {
+  setIsHeader(true);
+
+  const { documents, loading, error } = useFetchDocs("categorys");
 
   const [onNavigation, setOnNavigation] = useState(true);
   const [amountSlidePerView, setAmountSlidePerView] = useState(3);
@@ -34,8 +36,6 @@ const Home = ({setIsHeader}) => {
         setAmountSlidePerView(3);
       }
     }
-
-    
 
     handleResize();
 
@@ -94,84 +94,15 @@ const Home = ({setIsHeader}) => {
         spaceBetween={30}
         grabCursor={true}
       >
-        <SwiperSlide className={styles.category}>
-          <div>
-            <img src={produto} width="100%" alt="" />
-          </div>
-          <span>Series</span>
-        </SwiperSlide>
-        <SwiperSlide className={styles.category}>
-          <div>
-            <img src={produto} width="100%" alt="" />
-          </div>
-          <span>Series</span>
-        </SwiperSlide>
-        <SwiperSlide className={styles.category}>
-          <div>
-            <img src={produto} width="100%" alt="" />
-          </div>
-          <span>Series</span>
-        </SwiperSlide>
-        <SwiperSlide className={styles.category}>
-          <div>
-            <img src={produto} width="100%" alt="" />
-          </div>
-          <span>Series</span>
-        </SwiperSlide>
-        <SwiperSlide className={styles.category}>
-          <div>
-            <img src={produto} width="100%" alt="" />
-          </div>
-          <span>Series</span>
-        </SwiperSlide>
-        <SwiperSlide className={styles.category}>
-          <div>
-            <img src={produto} width="100%" alt="" />
-          </div>
-          <span>Series</span>
-        </SwiperSlide>
-        <SwiperSlide className={styles.category}>
-          <div>
-            <img src={produto} width="100%" alt="" />
-          </div>
-          <span>Series</span>
-        </SwiperSlide>
-        <SwiperSlide className={styles.category}>
-          <div>
-            <img src={produto} width="100%" alt="" />
-          </div>
-          <span>Series</span>
-        </SwiperSlide>
-        <SwiperSlide className={styles.category}>
-          <div>
-            <img src={produto} width="100%" alt="" />
-          </div>
-          <span>Series</span>
-        </SwiperSlide>
-        <SwiperSlide className={styles.category}>
-          <div>
-            <img src={produto} width="100%" alt="" />
-          </div>
-          <span>Series</span>
-        </SwiperSlide>
-        <SwiperSlide className={styles.category}>
-          <div>
-            <img src={produto} width="100%" alt="" />
-          </div>
-          <span>Series</span>
-        </SwiperSlide>
-        <SwiperSlide className={styles.category}>
-          <div>
-            <img src={produto} width="100%" alt="" />
-          </div>
-          <span>Series</span>
-        </SwiperSlide>
-        <SwiperSlide className={styles.category}>
-          <div>
-            <img src={produto} width="100%" alt="" />
-          </div>
-          <span>Series</span>
-        </SwiperSlide>
+        {documents &&
+          documents.map((doc) => (
+            <SwiperSlide className={styles.category}>
+              <div>
+                <img src={doc.urlCategory} width="100%" alt="" />
+              </div>
+              <span>{doc.nameCategory}</span>
+            </SwiperSlide>
+          ))}
       </Swiper>
       <section className={styles.carousel_more}>
         <h2>Mais vendidos:</h2>

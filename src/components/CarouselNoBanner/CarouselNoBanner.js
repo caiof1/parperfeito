@@ -57,6 +57,7 @@ const CarouselNoBanner = () => {
       >
         <SwiperSlide className={styles.product}>
           <div className={styles.product_single}>
+          <span className={styles.discount}>-35%</span>
             <Swiper
               style={{
                 "--swiper-navigation-color": "#9D2235",
@@ -80,14 +81,21 @@ const CarouselNoBanner = () => {
               Galáxia Rosa Flores Artificiais, A Bela e a Fera, Decoração de
               casamento...
             </p>
+            <div className={styles.stars}>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <span>(10)</span>
+            </div>
             <div className={styles.prices}>
               <span className={styles.price_total}>R$ 169,20</span>
               <div className={styles.price_discount}>
                 <span className={styles.price}>R$ 109,99</span>
-                <span className={styles.discount}>-35%</span>
+                
               </div>
             </div>
-            <button className={styles.product_btn}>Comprar</button>
           </div>
         </SwiperSlide>
         <SwiperSlide className={styles.product}>

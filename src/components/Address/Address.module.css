@@ -1,0 +1,87 @@
+
+
+.form > div {
+    margin: 10px 0;
+    position: relative;
+}
+
+.form input {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 12px;
+    border: 0;
+    border: 1px solid #9D2235;
+}
+
+.form .divbtn {
+    text-align: center;
+}
+
+.form .divbtn .btn {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    background: #9D2235;
+    color: #fff;
+    border: none;
+}
+
+.form .divbtn .btn:hover {
+    border: 1px solid #9D2235;
+    color: #9D2235;
+    cursor: pointer;
+    background-color: transparent;
+    transition: .2s linear;
+}
+
+.form .address_bairro {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.form .address_bairro div {
+    width: 49%;
+}
+
+.form .city_number {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.form .city_number .city {
+    width: 70%;
+}
+
+.form .city_number .number {
+    width: 29%;
+}
+
+@media screen and (max-width: 480px) {
+    .form .city_number {
+        flex-direction: column;
+    }
+
+    .form .address_bairro {
+        flex-direction: column;
+    }
+
+    .form .city_number .city,
+    .form .city_number .number {
+        width: 100%;
+    }
+
+    .form .city_number .city {
+        margin-bottom: 10px;
+    }
+    
+    .form .address_bairro div {
+        width: 100%;
+    }
+
+    .form .address_bairro .address {
+        margin-bottom: 10px;
+    }
+}

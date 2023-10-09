@@ -40,6 +40,11 @@ button {
   width: 100%;
 }
 
+.errordiv {
+  width: 100%;
+  text-align: center;
+}
+
 .error {
   margin-top: 15px;
   color: rgb(245, 5, 5);

@@ -1,0 +1,48 @@
+.cookie {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 20;
+    width: 100%;
+    bottom: 20px;
+    padding: 0 10px;
+}
+
+.cookie div {
+    padding: 10px;
+    background: #9D2235;
+    width: 100%;
+    color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cookie button {
+    width: 100%;
+    max-width: 100px;
+    height: 40px;
+    background: #fff;
+    color: #9D2235;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+    .cookie div {
+        flex-direction: column;
+        align-items: initial;
+    }
+
+    .cookie p {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .cookie button {
+        max-width: none;
+    }
+}

@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 
 
-const Register = ({ setIsHeader }) => {
+const Register = ({ setIsHeader, setType, setMessage, setTimeMessage }) => {
   setIsHeader(false);
 
   const navigate = useNavigate();
@@ -52,6 +52,9 @@ const Register = ({ setIsHeader }) => {
 
   useEffect(() => {
     if (acess) {
+      setType('sucess')
+      setMessage('Conta criada')
+      setTimeMessage(true)
       navigate("/");
     }
   }, [acess]);

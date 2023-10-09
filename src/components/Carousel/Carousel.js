@@ -11,9 +11,14 @@ import product from "../../images/produto_teste.png";
 // hooks
 import { useState, useEffect } from "react";
 
+// Router
+import { useNavigate } from "react-router-dom";
+
 const Carousel = ({ reverse }) => {
   const [amountSlidePerView, setAmountSlidePerView] = useState(3);
   const [onNavigation, setOnNavigation] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     function handleResize() {
@@ -58,8 +63,12 @@ const Carousel = ({ reverse }) => {
         pagination={{ dynamicBullets: true, clickable: true }}
         grabCursor={true}
       >
-        <SwiperSlide className={styles.product}>
+        <SwiperSlide
+          onClick={() => navigate("/pdp")}
+          className={styles.product}
+        >
           <div className={styles.product_single}>
+            <span className={styles.discount}>-35%</span>
             <Swiper
               style={{
                 "--swiper-navigation-color": "#9D2235",
@@ -83,18 +92,28 @@ const Carousel = ({ reverse }) => {
               Galáxia Rosa Flores Artificiais, A Bela e a Fera, Decoração de
               casamento...
             </p>
+            <div className={styles.stars}>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <span>(10)</span>
+            </div>
             <div className={styles.prices}>
               <span className={styles.price_total}>R$ 169,20</span>
               <div className={styles.price_discount}>
                 <span className={styles.price}>R$ 109,99</span>
-                <span className={styles.discount}>-35%</span>
               </div>
             </div>
-            <button className={styles.product_btn}>Comprar</button>
           </div>
         </SwiperSlide>
-        <SwiperSlide className={styles.product}>
+        <SwiperSlide
+          onClick={() => navigate("/pdp")}
+          className={styles.product}
+        >
           <div className={styles.product_single}>
+            <span className={styles.discount}>-35%</span>
             <Swiper
               style={{
                 "--swiper-navigation-color": "#9D2235",
@@ -118,18 +137,28 @@ const Carousel = ({ reverse }) => {
               Galáxia Rosa Flores Artificiais, A Bela e a Fera, Decoração de
               casamento...
             </p>
+            <div className={styles.stars}>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <span>(10)</span>
+            </div>
             <div className={styles.prices}>
               <span className={styles.price_total}>R$ 169,20</span>
               <div className={styles.price_discount}>
                 <span className={styles.price}>R$ 109,99</span>
-                <span className={styles.discount}>-35%</span>
               </div>
             </div>
-            <button className={styles.product_btn}>Comprar</button>
           </div>
         </SwiperSlide>
-        <SwiperSlide className={styles.product}>
+        <SwiperSlide
+          onClick={() => navigate("/pdp")}
+          className={styles.product}
+        >
           <div className={styles.product_single}>
+            <span className={styles.discount}>-35%</span>
             <Swiper
               style={{
                 "--swiper-navigation-color": "#9D2235",
@@ -153,18 +182,28 @@ const Carousel = ({ reverse }) => {
               Galáxia Rosa Flores Artificiais, A Bela e a Fera, Decoração de
               casamento...
             </p>
+            <div className={styles.stars}>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <span>(10)</span>
+            </div>
             <div className={styles.prices}>
               <span className={styles.price_total}>R$ 169,20</span>
               <div className={styles.price_discount}>
                 <span className={styles.price}>R$ 109,99</span>
-                <span className={styles.discount}>-35%</span>
               </div>
             </div>
-            <button className={styles.product_btn}>Comprar</button>
           </div>
         </SwiperSlide>
-        <SwiperSlide className={styles.product}>
+        <SwiperSlide
+          onClick={() => navigate("/pdp")}
+          className={styles.product}
+        >
           <div className={styles.product_single}>
+            <span className={styles.discount}>-35%</span>
             <Swiper
               style={{
                 "--swiper-navigation-color": "#9D2235",
@@ -188,14 +227,20 @@ const Carousel = ({ reverse }) => {
               Galáxia Rosa Flores Artificiais, A Bela e a Fera, Decoração de
               casamento...
             </p>
+            <div className={styles.stars}>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <span>(10)</span>
+            </div>
             <div className={styles.prices}>
               <span className={styles.price_total}>R$ 169,20</span>
               <div className={styles.price_discount}>
                 <span className={styles.price}>R$ 109,99</span>
-                <span className={styles.discount}>-35%</span>
               </div>
             </div>
-            <button className={styles.product_btn}>Comprar</button>
           </div>
         </SwiperSlide>
       </Swiper>

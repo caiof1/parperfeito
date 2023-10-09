@@ -4,6 +4,9 @@ import styles from "./Cart.module.css";
 // images
 import product from "../../images/produto_teste.png";
 
+// Router
+import { Link } from "react-router-dom";
+
 const Cart = ({ setIsHeader }) => {
   setIsHeader(false);
   return (
@@ -155,20 +158,20 @@ const Cart = ({ setIsHeader }) => {
       </section>
       <section className={styles.prices}>
         <div className={styles.subprice}>
-            <span>Subtotal:</span>
-            <span>R$ 109,99</span>
+          <span>Subtotal:</span>
+          <span>R$ 109,99</span>
         </div>
         <div className={styles.freteprice}>
-            <span>Frete:</span>
-            <span>Grátis</span>
+          <span>Frete:</span>
+          <span>Grátis</span>
         </div>
         <div className={styles.totalprice}>
-            <span>Total</span>
-            <span>R$ 109,99</span>
+          <span>Total</span>
+          <span>R$ 109,99</span>
         </div>
-        <div className={styles.btndiv}>
-            <button className={styles.btn}>Avançar</button>
-        </div>
+        <Link to="/checkout" className={styles.btndiv}>
+          <button className={styles.btn}>Avançar</button>
+        </Link>
       </section>
     </div>
   );

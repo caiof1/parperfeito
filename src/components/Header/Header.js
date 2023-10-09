@@ -9,7 +9,7 @@ import {useLogoutAuth} from '../../hooks/useLogoutAuth'
 import { Link } from "react-router-dom";
 import MiniCart from "../MiniCart/MiniCart";
 
-const Header = ({ user }) => {
+const Header = ({ user, setType, setMessage, setTimeMessage }) => {
   const [loginOrRegister, setLoginOrRegister] = useState(false);
   const [active, setActive] = useState(false)
 
@@ -18,6 +18,11 @@ const Header = ({ user }) => {
   const handleLogout = () => {
     logout()
     setLoginOrRegister(false)
+
+    // Message Alert config
+    setTimeMessage(true)
+    setType('sucess')
+    setMessage('Saiu da conta')
   }
 
   return (
