@@ -7,7 +7,7 @@ const Payment = () => {
   const [api, setAPI] = useState("")
 
   const fetchApi = async () => {
-    const res = await fetch("https://mercadopagopayment-krgcve343-caiof1.vercel.app/payment/1")
+    const res = await fetch("https://mercadopagopayment-qzs8oz36i-caiof1.vercel.app/payment/1")
     const data = await res.json()
     setAPI(data)
     return data
