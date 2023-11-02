@@ -45,7 +45,8 @@ export const useRegisterAuth = () => {
         orders: [],
         avaliations: [],
         ID: 0,
-        address: []
+        address: [],
+        cart: []
       }
 
       insertDoc(infoUser)

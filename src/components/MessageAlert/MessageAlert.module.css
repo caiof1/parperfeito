@@ -9,7 +9,7 @@
 .message_alert {
     position: fixed;
     bottom: 0px;
-    right: 10px;
+    left: 10px;
     width: 400px;
     height: 70px;
     z-index: 15;
@@ -53,8 +53,9 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
     .message_alert {
-        width: 95%;
+        width: 100%;
+        max-width: 300px;
     }
 }

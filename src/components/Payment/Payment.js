@@ -1,27 +1,37 @@
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import { useEffect, useState } from "react";
-initMercadoPago("APP_USR-1f6eb8ac-b18e-48f0-b463-a63c6a5143c6");
 
-const Payment = () => {
+import Loading from "../Loading/Loading";
 
-  const [api, setAPI] = useState("")
+// TEST-e1d8cdde-57bf-4457-8e99-dc32a0684aac
+// APP_USR-1f6eb8ac-b18e-48f0-b463-a63c6a5143c6
+initMercadoPago("TEST-e1d8cdde-57bf-4457-8e99-dc32a0684aac");
 
-  const fetchApi = async () => {
-    const res = await fetch("https://mercadopagopayment-qzs8oz36i-caiof1.vercel.app/payment/1")
-    const data = await res.json()
-    setAPI(data)
-    return data
-  }
+const Payment = ({value}) => {
+  const [api, setAPI] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchApi()
-  }, [])
+    const fetchApi = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch("http://localhost:3001/payment/" + value);
+        const data = await res.json();
+        setAPI(data);
+        setLoading(false);
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+      setLoading(false);
+    };
+
+    fetchApi();
+  }, []);
 
   return (
     <div>
-      {api && (
-        <Wallet initialization={{ preferenceId: api.id }} />
-      )}
+      {api ? <Wallet initialization={{ preferenceId: api.id }} /> : <Loading />}
     </div>
   );
 };

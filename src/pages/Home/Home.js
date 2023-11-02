@@ -19,6 +19,9 @@ const Home = ({ setIsHeader }) => {
   setIsHeader(true);
 
   const { documents, loading, error } = useFetchDocs("categorys");
+  const {documents: products} = useFetchDocs("products")
+
+  console.log(products)
 
   const [onNavigation, setOnNavigation] = useState(true);
   const [amountSlidePerView, setAmountSlidePerView] = useState(3);
@@ -106,7 +109,7 @@ const Home = ({ setIsHeader }) => {
       </Swiper>
       <section className={styles.carousel_more}>
         <h2>Mais vendidos:</h2>
-        <Carousel />
+        <Carousel products={products} />
       </section>
       <div className={styles.carousel_banner}>
         <div className={styles.banner_promotional}>
@@ -117,11 +120,11 @@ const Home = ({ setIsHeader }) => {
       </div>
       <section className={styles.carousel_more}>
         <h2>Você pode gostar:</h2>
-        <Carousel reverse={true} />
+        <Carousel products={products} reverse={true} />
       </section>
       <section className={styles.carousel_more}>
         <h2>Nossos lançamentos:</h2>
-        <Carousel />
+        <Carousel products={products} />
       </section>
     </main>
   );

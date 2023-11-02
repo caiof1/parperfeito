@@ -21,8 +21,6 @@ const MyAccount = ({ setIsHeader, user }) => {
 
   const {documents} = useFetchUser(user.uid, 'users')
 
-  console.log(documents)
-
   return (
     <div className={styles.account}>
       <h3 className={styles.title}>Minha Conta</h3>

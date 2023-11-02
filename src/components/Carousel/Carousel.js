@@ -14,7 +14,7 @@ import { useState, useEffect } from "react";
 // Router
 import { useNavigate } from "react-router-dom";
 
-const Carousel = ({ reverse }) => {
+const Carousel = ({ reverse, products }) => {
   const [amountSlidePerView, setAmountSlidePerView] = useState(3);
   const [onNavigation, setOnNavigation] = useState(true);
 
@@ -63,186 +63,57 @@ const Carousel = ({ reverse }) => {
         pagination={{ dynamicBullets: true, clickable: true }}
         grabCursor={true}
       >
-        <SwiperSlide
-          onClick={() => navigate("/pdp")}
-          className={styles.product}
-        >
-          <div className={styles.product_single}>
-            <span className={styles.discount}>-35%</span>
-            <Swiper
-              style={{
-                "--swiper-navigation-color": "#9D2235",
-                "--swiper-pagination-color": "#9D2235",
-              }}
-              slidesPerView={1}
-              navigation
-              grabCursor={true}
+        {products &&
+          products.map((product) => (
+            <SwiperSlide
+              onClick={() => navigate(`/pdp/${product.id}`)}
+              className={styles.product}
             >
-              <SwiperSlide className={styles.img_product}>
-                <img src={product} alt="" />
-              </SwiperSlide>
-              <SwiperSlide className={styles.img_product}>
-                <img src={product} alt="" />
-              </SwiperSlide>
-              <SwiperSlide className={styles.img_product}>
-                <img src={product} alt="" />
-              </SwiperSlide>
-            </Swiper>
-            <p className={styles.name_product}>
-              Galáxia Rosa Flores Artificiais, A Bela e a Fera, Decoração de
-              casamento...
-            </p>
-            <div className={styles.stars}>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <span>(10)</span>
-            </div>
-            <div className={styles.prices}>
-              <span className={styles.price_total}>R$ 169,20</span>
-              <div className={styles.price_discount}>
-                <span className={styles.price}>R$ 109,99</span>
+              <div className={styles.product_single}>
+                <span className={styles.discount}>
+                  {parseInt(
+                    ((parseInt(product.variacoes[0].value) /
+                      parseInt(product.variacoes[0].valueTotal)) *
+                      100) - 100
+                  )}
+                  %
+                </span>
+                <Swiper
+                  style={{
+                    "--swiper-navigation-color": "#9D2235",
+                    "--swiper-pagination-color": "#9D2235",
+                  }}
+                  slidesPerView={1}
+                  navigation
+                  grabCursor={true}
+                >
+                  {product.variacoes &&
+                    product.variacoes.map((variacoe) => (
+                      <SwiperSlide className={styles.img_product}>
+                        <img src={variacoe.imgVariacao} alt="" />
+                      </SwiperSlide>
+                    ))}
+                </Swiper>
+                <p className={styles.name_product}>
+                {product.nameProduct.substr(0, 77)}
+                </p>
+                <div className={styles.stars}>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <i className="fa-solid fa-star"></i>
+                  <span>({product.avaliations.length})</span>
+                </div>
+                <div className={styles.prices}>
+                  <span className={styles.price_total}>R$ {product.variacoes[0].valueTotal}</span>
+                  <div className={styles.price_discount}>
+                    <span className={styles.price}>R$ {product.variacoes[0].value}</span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide
-          onClick={() => navigate("/pdp")}
-          className={styles.product}
-        >
-          <div className={styles.product_single}>
-            <span className={styles.discount}>-35%</span>
-            <Swiper
-              style={{
-                "--swiper-navigation-color": "#9D2235",
-                "--swiper-pagination-color": "#9D2235",
-              }}
-              slidesPerView={1}
-              navigation
-              grabCursor={true}
-            >
-              <SwiperSlide className={styles.img_product}>
-                <img src={product} alt="" />
-              </SwiperSlide>
-              <SwiperSlide className={styles.img_product}>
-                <img src={product} alt="" />
-              </SwiperSlide>
-              <SwiperSlide className={styles.img_product}>
-                <img src={product} alt="" />
-              </SwiperSlide>
-            </Swiper>
-            <p className={styles.name_product}>
-              Galáxia Rosa Flores Artificiais, A Bela e a Fera, Decoração de
-              casamento...
-            </p>
-            <div className={styles.stars}>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <span>(10)</span>
-            </div>
-            <div className={styles.prices}>
-              <span className={styles.price_total}>R$ 169,20</span>
-              <div className={styles.price_discount}>
-                <span className={styles.price}>R$ 109,99</span>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide
-          onClick={() => navigate("/pdp")}
-          className={styles.product}
-        >
-          <div className={styles.product_single}>
-            <span className={styles.discount}>-35%</span>
-            <Swiper
-              style={{
-                "--swiper-navigation-color": "#9D2235",
-                "--swiper-pagination-color": "#9D2235",
-              }}
-              slidesPerView={1}
-              navigation
-              grabCursor={true}
-            >
-              <SwiperSlide className={styles.img_product}>
-                <img src={product} alt="" />
-              </SwiperSlide>
-              <SwiperSlide className={styles.img_product}>
-                <img src={product} alt="" />
-              </SwiperSlide>
-              <SwiperSlide className={styles.img_product}>
-                <img src={product} alt="" />
-              </SwiperSlide>
-            </Swiper>
-            <p className={styles.name_product}>
-              Galáxia Rosa Flores Artificiais, A Bela e a Fera, Decoração de
-              casamento...
-            </p>
-            <div className={styles.stars}>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <span>(10)</span>
-            </div>
-            <div className={styles.prices}>
-              <span className={styles.price_total}>R$ 169,20</span>
-              <div className={styles.price_discount}>
-                <span className={styles.price}>R$ 109,99</span>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide
-          onClick={() => navigate("/pdp")}
-          className={styles.product}
-        >
-          <div className={styles.product_single}>
-            <span className={styles.discount}>-35%</span>
-            <Swiper
-              style={{
-                "--swiper-navigation-color": "#9D2235",
-                "--swiper-pagination-color": "#9D2235",
-              }}
-              slidesPerView={1}
-              navigation
-              grabCursor={true}
-            >
-              <SwiperSlide className={styles.img_product}>
-                <img src={product} alt="" />
-              </SwiperSlide>
-              <SwiperSlide className={styles.img_product}>
-                <img src={product} alt="" />
-              </SwiperSlide>
-              <SwiperSlide className={styles.img_product}>
-                <img src={product} alt="" />
-              </SwiperSlide>
-            </Swiper>
-            <p className={styles.name_product}>
-              Galáxia Rosa Flores Artificiais, A Bela e a Fera, Decoração de
-              casamento...
-            </p>
-            <div className={styles.stars}>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <span>(10)</span>
-            </div>
-            <div className={styles.prices}>
-              <span className={styles.price_total}>R$ 169,20</span>
-              <div className={styles.price_discount}>
-                <span className={styles.price}>R$ 109,99</span>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
+            </SwiperSlide>
+          ))}
       </Swiper>
     </section>
   );

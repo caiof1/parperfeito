@@ -8,12 +8,15 @@ import {useLogoutAuth} from '../../hooks/useLogoutAuth'
 // Router
 import { Link } from "react-router-dom";
 import MiniCart from "../MiniCart/MiniCart";
+import { useFetchUser } from "../../hooks/useFetchUser";
 
 const Header = ({ user, setType, setMessage, setTimeMessage }) => {
   const [loginOrRegister, setLoginOrRegister] = useState(false);
   const [active, setActive] = useState(false)
 
   const logout = useLogoutAuth()
+
+  const {documents} = useFetchUser(user.uid, "users")
 
   const handleLogout = () => {
     logout()
@@ -77,7 +80,7 @@ const Header = ({ user, setType, setMessage, setTimeMessage }) => {
           </form>
         </div>
       </nav>
-      <MiniCart active={active} setActive={setActive} />
+      <MiniCart active={active} setActive={setActive} documents={documents[0]} />
     </header>
   );
 };

@@ -70,11 +70,76 @@
 
 .info {
     width: 30%;
+    padding: 10px;
 }
 
-@media screen and (max-width: 800px) {
+.divinfo {
+    width: 100%;
+    background: #F4F4F4;
+    border-radius: 14px 14px 0 0;
+    height: 350px;
+    overflow-y: scroll;
+    padding: 0 5px;
+}
+
+.divinfo::-webkit-scrollbar {
+    width: 5px;
+}
+  
+.divinfo::-webkit-scrollbar-thumb {
+    background: #9D2235;
+}
+
+.products {
+    width: 100%;
+    display: flex;
+    margin: 10px 0;
+}
+
+.products img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    align-self: center1;
+}
+
+.products .info_product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px;
+    color: #9D2235;
+}
+
+.values {
+    border-top: 3px solid #9D2235;
+    background: #F4F4F4;
+    padding: 10px;
+    border-radius: 0 0 14px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 150px;
+}
+
+.values div {
+    display: flex;
+    justify-content: space-between;
+    color: #9D2235;
+}
+
+.values .subtotal {
+    font-size: 14px;
+}
+
+.values .total {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1200px) {
     .checkout {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 
     .form {

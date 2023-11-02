@@ -19,7 +19,6 @@ import Address from "../../components/Address/Address";
 import Payment from "../../components/Payment/Payment";
 import { useFetchUser } from "../../hooks/useFetchUser";
 
-
 const Checkout = ({ setIsHeader, user }) => {
   setIsHeader(false);
   const [amountSlidePerView, setAmountSlidePerView] = useState(4);
@@ -31,6 +30,20 @@ const Checkout = ({ setIsHeader, user }) => {
   const { documents } = useFetchUser(user.uid, "users");
 
   const [acess, setAcess] = useState(0);
+
+  const [subTotal, setSubTotal] = useState(0)
+  
+  useEffect(() => {
+    if(documents) {
+      setSubTotal(0)
+      documents[0]?.cart?.map((product) => {
+
+        setSubTotal((actualSubTotal) =>  actualSubTotal + (parseFloat(product.value) * product.qtd))
+
+        return null
+      })
+    }
+  }, [documents])
 
   useEffect(() => {
     function handleResize() {
@@ -156,10 +169,40 @@ const Checkout = ({ setIsHeader, user }) => {
             <i className={`fa-solid fa-spinner fa-spin`}></i>
           )}
         </div>
-        {acess === 2 && <Payment setPayment={setPayment} setAcess={setAcess} />}
+        {acess === 2 && <Payment setPayment={setPayment} setAcess={setAcess} value={subTotal} />}
       </section>
 
-      <section className={styles.info}></section>
+      <section className={styles.info}>
+        <div className={styles.divinfo}>
+          {documents &&
+            documents[0]?.cart?.map((product) => (
+              <div className={styles.products}>
+                <img
+                  src={product.image}
+                  alt=""
+                />
+                <div className={styles.info_product}>
+                  <span>{product.nameProduct}</span>
+                  <span>R$ {Math.floor(parseFloat(product.value) * product.qtd)}</span>
+                </div>
+              </div>
+            ))}
+        </div>
+        <div className={styles.values}>
+          <div className={styles.subtotal}>
+            <span>Subtotal:</span>
+            <span>R$ {subTotal}</span>
+          </div>
+          <div className={styles.subtotal}>
+            <span>Frete:</span>
+            <span>Grátis</span>
+          </div>
+          <div className={styles.total}>
+            <span>Total:</span>
+            <span>R$ {subTotal}</span>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

@@ -52,8 +52,8 @@ function App() {
   const [timeMessage, setTimeMessage] = useState(false);
   const [message, setMessage] = useState("");
   const [type, setType] = useState("");
-  
-  const [cookie, setCookie] = useState()
+
+  const [cookie, setCookie] = useState();
 
   const [user, setUser] = useState("");
 
@@ -65,10 +65,10 @@ function App() {
   }, [auth, user]);
 
   useEffect(() => {
-    setCookie(localStorage.getItem("acceptCook"))
-  }, [])
+    setCookie(localStorage.getItem("acceptCook"));
+  }, []);
 
-  console.log(cookie)
+  console.log(cookie);
 
   const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -87,6 +87,13 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        {timeMessage && (
+          <MessageAlert
+            type={type}
+            message={message}
+            setTimeMessage={setTimeMessage}
+          />
+        )}
         {isHeader ? (
           <Header
             user={user}
@@ -99,18 +106,20 @@ function App() {
         )}
         {cookie !== "true" && <Cookies setCookie={setCookie} />}
         <ScrollToTop />
-        {timeMessage && (
-          <MessageAlert
-            type={type}
-            message={message}
-            setTimeMessage={setTimeMessage}
-          />
-        )}
+
         <Routes>
           <Route path="/" element={<Home setIsHeader={setIsHeader} />} />
           <Route
-            path="/pdp"
-            element={<PageProduct setIsHeader={setIsHeader} />}
+            path="/pdp/:id"
+            element={
+              <PageProduct
+                user={user}
+                setIsHeader={setIsHeader}
+                setType={setType}
+                setMessage={setMessage}
+                setTimeMessage={setTimeMessage}
+              />
+            }
           />
           <Route
             path="/login"
@@ -143,7 +152,7 @@ function App() {
               )
             }
           />
-          <Route path="/cart" element={<Cart setIsHeader={setIsHeader} />} />
+          <Route path="/cart" element={<Cart setIsHeader={setIsHeader} user={user} />} />
           <Route
             path="/checkout"
             element={

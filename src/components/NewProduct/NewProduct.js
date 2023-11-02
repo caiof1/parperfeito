@@ -12,6 +12,7 @@ const NewProduct = ({ setRenderComponents }) => {
   const [valueTotal, setValueTotal] = useState("");
   const [value, setValue] = useState("");
   const [nameVariation, setNameVariation] = useState("")
+  const [numberVariacao, setNumberVariacao] = useState("")
   const [variacoes, setVaricoes] = useState([]);
 
   const [stars, setStars] = useState('')
@@ -68,7 +69,8 @@ const NewProduct = ({ setRenderComponents }) => {
       imgVariacao,
       valueTotal,
       value,
-      nameVariation
+      nameVariation,
+      numberVariacao
     };
 
     setVaricoes((actualVaricoes) => [...actualVaricoes, varProduct]);
@@ -77,6 +79,7 @@ const NewProduct = ({ setRenderComponents }) => {
     setValueTotal("");
     setValue("");
     setNameVariation("")
+    setNumberVariacao("")
   };
 
   const handleCreateAvaliation = () => {
@@ -218,11 +221,20 @@ const NewProduct = ({ setRenderComponents }) => {
             onChange={(e) => setImgVariacao(e.target.value)}
           />
         </div>
+        
         {imgVariacao && (
           <div className={styles.previewimg}>
             <img className={styles.preview} src={imgVariacao} alt="" />
           </div>
         )}
+        <div className={styles.variacao}>
+          <input
+            type="number"
+            placeholder="Número da variação"
+            value={numberVariacao || ""}
+            onChange={(e) => setNumberVariacao(e.target.value)}
+          />
+        </div>
         <div className={styles.discount_variacao}>
           <input
             type="text"

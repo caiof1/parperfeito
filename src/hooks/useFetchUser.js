@@ -10,10 +10,8 @@ export const useFetchUser = (uid, docCollection) => {
   const [error, setError] = useState("");
   const [documents, setDocuments] = useState([]);
 
-  const [cancelled, setCancelled] = useState(false);
 
   useEffect(() => {
-    if (cancelled) return;
     const fetchDocuments = async () => {
       setLoading(true);
       try {
@@ -21,6 +19,8 @@ export const useFetchUser = (uid, docCollection) => {
           collection(db, docCollection),
           where('uid', '==', uid)
         );
+
+        console.log('entrou')
 
         await onSnapshot(q, (querySnapshot) => {
           setDocuments(
@@ -36,11 +36,7 @@ export const useFetchUser = (uid, docCollection) => {
       setLoading(false);
     };
     fetchDocuments();
-  }, [docCollection, cancelled]);
-
-  useEffect(() => {
-    return () => setCancelled(true);
-  }, []);
+  }, [docCollection, uid]);
 
   return { documents, loading, error };
 };
