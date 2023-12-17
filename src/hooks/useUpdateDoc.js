@@ -14,6 +14,7 @@ export const useUpdateDoc = (docCollection) => {
     setLoading(true);
     try {
       await updateDoc(doc(db, docCollection, id), data);
+      console.log("updates")
       setAcess(true)
     } catch (error) {
       setError("Tivemos problemas ao salvar os seus dados");

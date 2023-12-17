@@ -9,12 +9,15 @@ export const useInsertDoc = (docCollection, textError) => {
 
   const insertDoc = async (data) => {
     setLoading(true);
+
+    console.log('uai')
     try {
       const newOrder = { ...data, createAt: Timestamp.now() };
       await addDoc(collection(db, docCollection), newOrder);
       setAcess(true);
     } catch (error) {
       setError({textError});
+      console.log(error)
     }
     setLoading(false);
   };

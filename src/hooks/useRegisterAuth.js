@@ -43,10 +43,17 @@ export const useRegisterAuth = () => {
         email: user.email,
         phone: '',
         orders: [],
+        cpf: '',
         avaliations: [],
         ID: 0,
-        address: [],
-        cart: []
+        cart: [],
+        adress: "",
+        bairro: "",
+        cep: "",
+        city: "",
+        complement: "",
+        number: "",
+        state: ""
       }
 
       insertDoc(infoUser)

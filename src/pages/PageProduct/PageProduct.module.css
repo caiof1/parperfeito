@@ -184,6 +184,95 @@
     font-size: 17px;
 }
 
+.view_more span {
+    cursor: pointer;
+}
+
+.view_more span:hover {
+    color: #000;
+}
+
+.banners {
+    margin: 25px auto;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.banners img {
+    width: 100%;
+    max-width: 400px;
+}
+
+.banners img {
+    border-radius: 15px;
+}
+
+.banners h2 {
+    color: #9D2235;
+}
+
+.banners p {
+    margin-top: 15px;
+}
+
+.avaliation_img {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.img_avaliation {
+    width: 70px;
+    margin-right: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.img_avaliation img {
+    width: 100%;
+    height: inherit;
+    border-radius: 10px;
+}
+
+.previewimg span {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.previewimg {
+    background: #ccc;
+    width: 95%;
+    height: 80vh;
+    max-width: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.images {
+    width: 100%;
+    max-width: 500px;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.images img {
+    width: 100%;
+    max-width: 300px;
+}
+
 @media screen and (max-width: 730px) {
     .avaliations {
         flex-direction: column;
@@ -306,8 +395,6 @@
 .value_normal {
     display: flex;
     align-items: center;
-    
-    
 }
 
 .value_discount {

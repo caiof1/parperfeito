@@ -2,14 +2,51 @@ import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import { useEffect, useState } from "react";
 
 import Loading from "../Loading/Loading";
+import { useFetchUser } from "../../hooks/useFetchUser";
+import { useInsertDoc } from "../../hooks/useInsertDoc";
 
-// TEST-e1d8cdde-57bf-4457-8e99-dc32a0684aac
-// APP_USR-1f6eb8ac-b18e-48f0-b463-a63c6a5143c6
-initMercadoPago("TEST-e1d8cdde-57bf-4457-8e99-dc32a0684aac");
-
-const Payment = ({value}) => {
+const Payment = ({ value, user, address, personal }) => {
   const [api, setAPI] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false)
+
+  const {documents} = useFetchUser(user?.uid, "users")
+
+  const {insertDoc} = useInsertDoc("orders")
+
+
+  const createOrder = () => {
+
+
+    const newOrder = {
+      adress: address?.address,
+      cep: address?.cep,
+      bairro: address?.bairro,
+      number: address?.number,
+      state: address?.state,
+      city: address?.city,
+      complement: address?.complement ? address?.complement : "",
+      products: documents[0]?.cart,
+      name: personal?.name,
+      phone: personal?.phone,
+      cpf: personal?.cpf,
+      subName: personal?.subName ? personal?.subName : "",
+      status: 'Pendente',
+      uid: documents[0]?.uid,
+      value
+    }
+
+
+    console.log(newOrder)
+
+    insertDoc(newOrder)
+    
+  }
+
+  useEffect(() => {
+    // TEST-e1d8cdde-57bf-4457-8e99-dc32a0684aac
+    // APP_USR-1f6eb8ac-b18e-48f0-b463-a63c6a5143c6
+    initMercadoPago("TEST-e1d8cdde-57bf-4457-8e99-dc32a0684aac", {locale: "pt-BR"});
+  }, []);
 
   useEffect(() => {
     const fetchApi = async () => {
@@ -31,7 +68,14 @@ const Payment = ({value}) => {
 
   return (
     <div>
-      {api ? <Wallet initialization={{ preferenceId: api.id }} /> : <Loading />}
+      {api ? (
+        <Wallet
+          initialization={{ preferenceId: api.id}}
+          onSubmit={createOrder}
+        />
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 };

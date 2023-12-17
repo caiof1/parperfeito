@@ -60,7 +60,7 @@ const Address = ({ setAddrress, addrress, setAcess, documents }) => {
 
   useEffect(() => {
     setCEP(documents[0]?.cep);
-    setAddress(documents[0]?.address);
+    setAddress(documents[0]?.adress);
     setBairro(documents[0]?.bairro);
     setCity(documents[0]?.city);
     setNumber(documents[0]?.number);
@@ -71,22 +71,17 @@ const Address = ({ setAddrress, addrress, setAcess, documents }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (
-      (cep.length === 8 && !cep.includes("-")) ||
-      (cep.length > 8 && cep.includes("-"))
-    ) {
-      setAddrress({
-        cep,
-        address,
-        bairro,
-        state,
-        city,
-        number,
-        complement,
-      });
+    setAddrress({
+      cep,
+      address,
+      bairro,
+      state,
+      city,
+      number,
+      complement: complement ? complement : "",
+    });
 
-      setAcess(2);
-    }
+    setAcess(2);
   };
 
   return (

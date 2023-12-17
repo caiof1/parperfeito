@@ -11,7 +11,6 @@ import Loading from '../../components/Loading/Loading'
 const NewCategory = ({ setRenderComponents }) => {
   const [nameCategory, setNameCategory] = useState("");
   const [urlCategory, setUrlCategory] = useState("");
-  const [urlBanner, setUrlBanner] = useState("");
 
   const {insertDoc, loading, error, acess} = useInsertDoc('categorys', 'Não podemos criar a sua categoria')
 
@@ -20,8 +19,7 @@ const NewCategory = ({ setRenderComponents }) => {
 
     const data = {
       nameCategory,
-      urlCategory,
-      urlBanner
+      urlCategory
     }
 
     insertDoc(data)
@@ -60,20 +58,6 @@ const NewCategory = ({ setRenderComponents }) => {
         {urlCategory && (
           <div className={styles.img_principal}>
             <img src={urlCategory} alt="" />
-          </div>
-        )}
-        <div className={styles.banner}>
-          <input
-            type="text"
-            placeholder="Url do banner"
-            required
-            value={urlBanner}
-            onChange={(e) => setUrlBanner(e.target.value)}
-          />
-        </div>
-        {urlBanner && (
-          <div className={styles.img_banner}>
-            <img src={urlBanner} alt="" />
           </div>
         )}
         <div className={styles.btndiv}>

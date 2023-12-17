@@ -6,7 +6,7 @@ import styles from "./MyDetails.module.css";
 // hooks
 import { useEffect, useState } from 'react'
 
-const MyDetails = ({documents}) => {
+const MyDetails = ({documents, setTimeMessage, setType, setMessage}) => {
 
   const [name, setName] = useState('')
   const [sobrename, setSobrename] = useState('')
@@ -28,16 +28,23 @@ const MyDetails = ({documents}) => {
     }
 
     documents[0].name = name
-    documents[0].sobrename = sobrename
+    documents[0].subName = sobrename ? sobrename : ""
     documents[0].cpf = cpf
     documents[0].phone = phone
 
+    console.log(documents[0])
+
     updateDocs(documents[0].id, documents[0])
+
+    // Message Alert config
+    setTimeMessage(true)
+    setType('sucess')
+    setMessage('Dados atualizados')
   }
 
   useEffect(() => {
     setName(documents[0]?.name)
-    setSobrename(documents[0]?.sobrename)
+    setSobrename(documents[0]?.subName)
     setCPF(documents[0]?.cpf)
     setPhone(documents[0]?.phone)
   }, [documents])

@@ -27,7 +27,7 @@ const Checkout = ({ setIsHeader, user }) => {
   const [addrress, setAddrress] = useState();
   const [payment, setPayment] = useState();
 
-  const { documents } = useFetchUser(user.uid, "users");
+  const { documents } = useFetchUser(user?.uid, "users");
 
   const [acess, setAcess] = useState(0);
 
@@ -169,7 +169,7 @@ const Checkout = ({ setIsHeader, user }) => {
             <i className={`fa-solid fa-spinner fa-spin`}></i>
           )}
         </div>
-        {acess === 2 && <Payment setPayment={setPayment} setAcess={setAcess} value={subTotal} />}
+        {acess === 2 && <Payment setPayment={setPayment} setAcess={setAcess} value={subTotal} user={user} address={addrress} personal={personal} />}
       </section>
 
       <section className={styles.info}>

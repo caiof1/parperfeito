@@ -11,6 +11,16 @@
     transition: .3s linear; 
 }
 
+.not_products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no_products {
+    color: #FFF;
+}
+
 .close {
     display: flex;
     justify-content: space-between;

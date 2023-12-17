@@ -47,12 +47,12 @@ const MyAddress = ({ documents }) => {
     }
 
     documents[0].cep = cep
-    documents[0].address = address
+    documents[0].adress = address
     documents[0].bairro = bairro
     documents[0].state = state
     documents[0].city = city
     documents[0].number = number
-    documents[0].complement = complement
+    documents[0].complement = complement ? complement : ""
 
     updateDocs(documents[0].id, documents[0]);
   };
@@ -98,6 +98,7 @@ const MyAddress = ({ documents }) => {
             <input
               type="text"
               name=""
+              required
               placeholder="Endereço"
               value={address}
               onChange={(e) => setAddress(e.target.value)}

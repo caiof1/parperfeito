@@ -3,10 +3,10 @@ import styles from "./Footer.module.css";
 
 // images
 import visa from "../../images/pagamento1.png";
-import boleto from "../../images/pagamento2.png";
 import mercadoPago from "../../images/pagamento3.png";
 import masterCard from "../../images/pagamento4.png";
-import pix from "../../images/pagamento5.png";
+
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -29,19 +29,25 @@ const Footer = () => {
                   <i class="fa-solid fa-envelope"></i>
                   <div>
                     <span>E-mail</span>
-                    <span>caionl2071@gmail.com</span>
+                    <span>sacparperfeito@gmail.com</span>
                   </div>
                 </div>
               </div>
             </div>
             <div className={styles.info_single}>
-              <h4 className={styles.title}>Formas de pagamento</h4>
+              <h4 className={styles.title}>Redes Sociais</h4>
               <div className={styles.img_payment}>
-                <img src={visa} alt="" />
-                <img src={boleto} alt="" />
-                <img src={mercadoPago} alt="" />
                 <img src={masterCard} alt="" />
-                <img src={pix} alt="" />
+                <img src={mercadoPago} alt="" />
+                <img src={visa} alt="" />
+              </div>
+            </div>
+            <div className={styles.info_single}>
+              <h4 className={styles.title}>Redes Sociais</h4>
+              <div className={styles.img_payment}>
+                <a target="_blank" href="https://www.facebook.com/profile.php?id=100095367280504"><i class="fa-brands fa-facebook"></i></a>
+                <a target="_blank" href="https://www.instagram.com/parperfeito.official/"><i class="fa-brands fa-instagram"></i></a>
+                <a target="_blank" href="https://wa.me/11960434439"><i class="fa-brands fa-whatsapp"></i></a>
               </div>
             </div>
           </div>

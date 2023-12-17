@@ -1,0 +1,53 @@
+.sucess {
+    display: flex;
+    min-height: 400px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+.sucess h1 {
+    color: rgb(4, 204, 4);
+}
+
+.sucess div {
+    display: flex;
+    flex-direction: column;
+}
+
+.sucess div span {
+    margin: 5px 0;
+}
+
+.sucess .icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid rgb(4, 204, 4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 0 auto;
+    font-size: 60px;
+    color: rgb(4, 204, 4);
+    margin-bottom: 10px;
+}
+
+.sucess a {
+    color: #9D2235;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 560px) {
+    .sucess h1 {
+        font-size: 18px;
+    }
+
+    .sucess span {
+        font-size: 12px;
+    }
+}

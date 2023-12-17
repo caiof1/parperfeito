@@ -72,3 +72,10 @@
     margin: 5px 10px;
     width: 50px;
 }
+
+.img_payment i {
+    color: #fff;
+    margin: 5px 10px;
+    font-size: 25px;
+    cursor: pointer;
+}

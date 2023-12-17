@@ -11,9 +11,14 @@ import { useFetchDocs } from "../../hooks/useFetchDocs";
 // images
 import banner1 from "../../images/banner_principal.png";
 import bannerPromocional1 from "../../images/banner_promocional.png";
+import bannerColar from '../../images/@parperfeito.official.png'
+import bannerDragao from '../../images/@parperfeito.official (2).png'
+import bannerFlor from '../../images/@parperfeito.official (3).png'
+import bannerSecundario from '../../images/Banner para Mercado Shops Dia dos Namorados Promoções Romântico Vermelho.png'
 
 // Components
 import Carousel from "../../components/Carousel/Carousel";
+import { useNavigate } from "react-router-dom";
 
 const Home = ({ setIsHeader }) => {
   setIsHeader(true);
@@ -21,7 +26,10 @@ const Home = ({ setIsHeader }) => {
   const { documents, loading, error } = useFetchDocs("categorys");
   const {documents: products} = useFetchDocs("products")
 
-  console.log(products)
+  const navigate = useNavigate()
+
+  const [youLike, setYouLike] = useState([]);
+  const [newProducts, setNewProducts] = useState([]);
 
   const [onNavigation, setOnNavigation] = useState(true);
   const [amountSlidePerView, setAmountSlidePerView] = useState(3);
@@ -48,6 +56,29 @@ const Home = ({ setIsHeader }) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+  
+  useEffect(() => {
+    setYouLike([])
+    setNewProducts([])
+    products.map((product) => {
+
+      if(product.category === "W97aO8BSSP3McccHq4dw") {
+        setYouLike((actualYouLike) => [
+          ...actualYouLike,
+          product
+        ])
+      }
+
+      if(product.category === "sZAmLgEIFraM1fBfKAlQ") {
+        setNewProducts((actualNewProducts) => [
+          ...actualNewProducts,
+          product
+        ])
+      }
+
+      return null
+    })
+  }, [products])
 
   return (
     <main className={`${styles.main} center`}>
@@ -70,7 +101,7 @@ const Home = ({ setIsHeader }) => {
           <img src={banner1} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={banner1} alt="" />
+          <img src={bannerSecundario} alt="" />
         </SwiperSlide>
       </Swiper>
       <Swiper
@@ -80,7 +111,7 @@ const Home = ({ setIsHeader }) => {
       >
         <SwiperSlide className={styles.slide_benefity}>
           <i class="fa-brands fa-pix"></i>
-          <span>Compre pelo pix</span>
+          <span>Compre com Mercado Pago</span>
         </SwiperSlide>
         <SwiperSlide className={styles.slide_benefity}>
           <i class="fa-solid fa-truck-fast"></i>
@@ -100,7 +131,7 @@ const Home = ({ setIsHeader }) => {
         {documents &&
           documents.map((doc) => (
             <SwiperSlide className={styles.category}>
-              <div>
+              <div onClick={() => navigate(`/categoria/${doc.id}`)}>
                 <img src={doc.urlCategory} width="100%" alt="" />
               </div>
               <span>{doc.nameCategory}</span>
@@ -109,7 +140,7 @@ const Home = ({ setIsHeader }) => {
       </Swiper>
       <section className={styles.carousel_more}>
         <h2>Mais vendidos:</h2>
-        <Carousel products={products} />
+        <Carousel products={products} image={bannerColar} />
       </section>
       <div className={styles.carousel_banner}>
         <div className={styles.banner_promotional}>
@@ -120,11 +151,11 @@ const Home = ({ setIsHeader }) => {
       </div>
       <section className={styles.carousel_more}>
         <h2>Você pode gostar:</h2>
-        <Carousel products={products} reverse={true} />
+        <Carousel products={youLike} reverse={true} image={bannerDragao} />
       </section>
       <section className={styles.carousel_more}>
         <h2>Nossos lançamentos:</h2>
-        <Carousel products={products} />
+        <Carousel products={newProducts} image={bannerFlor} />
       </section>
     </main>
   );

@@ -14,7 +14,7 @@ import { useState, useEffect } from "react";
 // Router
 import { useNavigate } from "react-router-dom";
 
-const Carousel = ({ reverse, products }) => {
+const Carousel = ({ reverse, products, image }) => {
   const [amountSlidePerView, setAmountSlidePerView] = useState(3);
   const [onNavigation, setOnNavigation] = useState(true);
 
@@ -50,7 +50,7 @@ const Carousel = ({ reverse, products }) => {
       className={`${styles.container_carousel} ${reverse && styles.reverse}`}
     >
       <div className={styles.img_banner}>
-        <img src={bannerProduto} alt="" />
+        <img src={image} alt="" />
       </div>
       <Swiper
         className={styles.carousel}

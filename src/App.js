@@ -42,6 +42,9 @@ import Cart from "./pages/Cart/Cart";
 import Checkout from "./pages/Checkout/Checkout";
 import MessageAlert from "./components/MessageAlert/MessageAlert";
 import Cookies from "./components/Cookies/Cookies";
+import Category from "./pages/Category/Category";
+import SucessBuy from "./pages/SucessBuy/SucessBuy";
+import Search from "./pages/Search/Search";
 
 register();
 
@@ -67,8 +70,6 @@ function App() {
   useEffect(() => {
     setCookie(localStorage.getItem("acceptCook"));
   }, []);
-
-  console.log(cookie);
 
   const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -146,13 +147,16 @@ function App() {
             path="/myaccount"
             element={
               user ? (
-                <MyAccount setIsHeader={setIsHeader} user={user} />
+                <MyAccount setIsHeader={setIsHeader} user={user} setTimeMessage={setTimeMessage} setType={setType} setMessage={setMessage} />
               ) : (
                 <Navigate to="/login" />
               )
             }
           />
-          <Route path="/cart" element={<Cart setIsHeader={setIsHeader} user={user} />} />
+          <Route
+            path="/cart"
+            element={<Cart setIsHeader={setIsHeader} user={user} />}
+          />
           <Route
             path="/checkout"
             element={
@@ -163,6 +167,9 @@ function App() {
               )
             }
           />
+          <Route path="/categoria/:id" element={<Category setIsHeader={setIsHeader} />} />
+          <Route path="/search" element={<Search setIsHeader={setIsHeader} />} />
+          <Route path="/compra-bem-sucedida" element={<SucessBuy setIsHeader={setIsHeader} user={user} />} />
         </Routes>
         {isHeader && <Footer />}
       </BrowserRouter>

@@ -18,7 +18,7 @@ export const useFetchDocs = (docCollection) => {
         const fetchDocuments = async () => {
             setLoading(true)
             try {
-                const q = await query(collection(db, docCollection), orderBy('createAt', 'asc'))
+                const q = await query(collection(db, docCollection), orderBy('createAt', 'desc'))
 
                 await onSnapshot(q, (querySnapshot) => {
                     setDocuments(

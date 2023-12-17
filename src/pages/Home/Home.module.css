@@ -52,6 +52,11 @@
     border-radius: 50px;
     border: 1px solid #9D2235;
     background: #fff;
+    cursor: pointer;
+}
+
+.category div:hover {
+    border-color: #000;
 }
 
 .category span {

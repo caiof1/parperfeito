@@ -17,7 +17,7 @@ const PersonalCheckout = ({ setPersonal, personal, setAcess, documents }) => {
 
     setPersonal({
       name,
-      sobrename,
+      sobrename: sobrename ? sobrename : "",
       cpf,
       phone,
     });

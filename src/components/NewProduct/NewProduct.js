@@ -18,6 +18,8 @@ const NewProduct = ({ setRenderComponents }) => {
   const [stars, setStars] = useState('')
   const [nameClient, setNameClient] = useState('')
   const [description, setDescription] = useState('')
+  const [img, setImg] = useState("")
+  const [imgAvaliation, setImgAvaliation] = useState([])
   const [avaliations, setAvaliations] = useState([])
 
   const [titleBanner, setTitleBanner] = useState('')
@@ -28,6 +30,7 @@ const NewProduct = ({ setRenderComponents }) => {
   const [nameProduct, setNameProduct] = useState("")
   const [totalSales, setTotalSales] = useState("")
   const [category, setCategory] = useState("0")
+  const [frete, setFrete] = useState("")
 
   const [error, setError] = useState("");
 
@@ -43,6 +46,7 @@ const NewProduct = ({ setRenderComponents }) => {
       nameProduct,
       totalSales,
       category,
+      frete,
       variacoes,
       avaliations,
       banners
@@ -94,6 +98,7 @@ const NewProduct = ({ setRenderComponents }) => {
       stars,
       nameClient,
       description,
+      imgAvaliation
     };
 
     setAvaliations((actualAvaliations) => [...actualAvaliations, varProduct]);
@@ -101,6 +106,7 @@ const NewProduct = ({ setRenderComponents }) => {
     setStars("");
     setNameClient("");
     setDescription("");
+    setImgAvaliation([])
   };
 
   const handleCreateBanner = () => {
@@ -116,13 +122,21 @@ const NewProduct = ({ setRenderComponents }) => {
     setUrlBanner("");
     setTextBanner("");
   };
+  
+  const handleAddImg = () => {
+    setImgAvaliation((actualImgAvaliation) => [
+      ...actualImgAvaliation,
+      img
+    ])
+
+    setImg("")
+  }
 
   const deleteVariacao = (vari) => {
     setVaricoes((actualVaricoes) => actualVaricoes.filter(element => element !== vari));
   };
 
   const deleteAvaliation = (avaliation) => {
-
     setAvaliations((actualAvaliations) => actualAvaliations.filter(element => element !== avaliation));
   };
 
@@ -149,6 +163,9 @@ const NewProduct = ({ setRenderComponents }) => {
               <option value={doc.id} key={doc.id}>{doc.nameCategory}</option>
             ))}
           </select>
+        </div>
+        <div className={styles.sales}>
+          <input type="text" placeholder="Dias do Frente" required value={frete || ""} onChange={(e) => setFrete(e.target.value)}/>
         </div>
         <div className={styles.personal}>
           <h4>Cadastrar banners</h4>
@@ -309,6 +326,20 @@ const NewProduct = ({ setRenderComponents }) => {
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
+        <div className={styles.value_variacao}>
+          <input
+            type="text"
+            placeholder="URL da imagem da avaliação"
+            value={img || ""}
+            onChange={(e) => setImg(e.target.value)}
+          />
+        </div>
+        {img && (
+          <div className={styles.previewimg}>
+            <img className={styles.preview} src={img} alt="" />
+          </div>
+        )}
+        <button type="button" onClick={handleAddImg} className={styles.btn}>Adicionar imagem</button>
         <button onClick={handleCreateAvaliation} type="button" className={styles.btn}>
           Cadastrar avaliação
         </button>

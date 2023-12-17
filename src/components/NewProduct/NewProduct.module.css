@@ -48,6 +48,7 @@
     background: #9D2235;
     cursor: pointer;
     border: 0;
+    margin-bottom: 15px;
 }
 
 .btn:hover {

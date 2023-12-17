@@ -16,8 +16,19 @@
 
 .products {
     width: 100%;
-    max-height: 300px;
+    height: 300px;
+    position: relative;
     overflow-y: scroll;
+}
+
+.not_products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no_products {
+    color: #9D2235;
 }
 
 .products .product {
