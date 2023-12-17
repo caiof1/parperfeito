@@ -45,14 +45,14 @@ const Payment = ({ value, user, address, personal }) => {
   useEffect(() => {
     // TEST-e1d8cdde-57bf-4457-8e99-dc32a0684aac
     // APP_USR-1f6eb8ac-b18e-48f0-b463-a63c6a5143c6
-    initMercadoPago("TEST-e1d8cdde-57bf-4457-8e99-dc32a0684aac", {locale: "pt-BR"});
+    initMercadoPago("APP_USR-1f6eb8ac-b18e-48f0-b463-a63c6a5143c6", {locale: "pt-BR"});
   }, []);
 
   useEffect(() => {
     const fetchApi = async () => {
       setLoading(true);
       try {
-        const res = await fetch("http://localhost:3001/payment/" + value);
+        const res = await fetch("https://mercadopagopayment-hg7lfigj1-caiof1.vercel.app/payment/" + value);
         const data = await res.json();
         setAPI(data);
         setLoading(false);
